@@ -1,0 +1,42 @@
+modLoader="javafml"
+
+loaderVersion="[36,)"
+
+license="All rights reserved"
+
+[[mods]]
+itemIcon="minecraft:stick"
+
+configBackground="minecraft:textures/block/spawner.png"
+
+modId="random_events"
+
+version="1.0.0"
+
+displayName="Random Events"
+
+displayURL="https://www.curseforge.com/minecraft/mc-mods/random-events"
+
+logoFile="logo.png"
+
+credits="All credit goes to DevMaster1015 aka RedRoseWarrior1"
+
+authors=["RedRoseWarrior1 aka DevMaster1015"]
+
+description='''Adds Random Events'''
+
+# Base Forge
+[[dependencies.random_events]]
+    modId="forge"
+    mandatory=true
+    versionRange="[36,)"
+    ordering="NONE"
+    side="BOTH"
+
+# Base Minecraft
+[[dependencies.random_events]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.5,1.17]"
+    ordering="NONE"
+    side="BOTH"
