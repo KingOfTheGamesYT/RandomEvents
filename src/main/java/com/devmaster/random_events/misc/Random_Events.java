@@ -30,6 +30,7 @@ public class Random_Events {
         modEventBus.addListener(this::setup);
         MinecraftForge.EVENT_BUS.register(this);
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, REConfig.COMMON_CONFIG, "random_events-config.toml");
+        MinecraftForge.EVENT_BUS.register(new EventManager());
     }
 
     private void setup(final FMLCommonSetupEvent event) {
