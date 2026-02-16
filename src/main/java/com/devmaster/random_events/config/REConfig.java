@@ -1,13 +1,8 @@
 package com.devmaster.random_events.config;
 
-import net.minecraft.util.ResourceLocation;
-
 import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.registries.ForgeRegistries;
-import org.apache.commons.lang3.tuple.Pair;
 
-import java.util.Arrays;
-import java.util.List;
+import org.apache.commons.lang3.tuple.Pair;
 
 public class REConfig {
 
@@ -62,15 +57,15 @@ public class REConfig {
         public final ForgeConfigSpec.BooleanValue harmPotionRainEnabled;
 
         public Config(ForgeConfigSpec.Builder builder) {
-            builder.push("general");
+            builder.push("Timers");
 
             eventIntervalMinutes = builder
                     .comment("Time between random events in minutes")
-                    .defineInRange("eventIntervalMinutes", 10, 1, 1440);
+                    .defineInRange("event", 10, 1, 1440);
 
             warningTimeSeconds = builder
                     .comment("Warning time before event in seconds")
-                    .defineInRange("warningTimeSeconds", 60, 0, 300);
+                    .defineInRange("warning", 60, 0, 300);
 
             builder.pop();
             builder.push("events");

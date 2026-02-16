@@ -19,7 +19,6 @@ import net.minecraft.item.crafting.FurnaceRecipe;
 import net.minecraft.item.crafting.SmokingRecipe;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.nbt.ListNBT;
-import net.minecraft.particles.ParticleType;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.*;
 import net.minecraft.tags.ItemTags;
@@ -33,6 +32,7 @@ import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.server.ServerWorld;
+
 import net.minecraftforge.fml.server.ServerLifecycleHooks;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -85,7 +85,7 @@ public class RandomEvents {
         ServerWorld world = (ServerWorld) player.world;
 
         switch (eventType) {
-            case ARROW_RAIN:            arrowRain(player, world );           break;
+            case ARROW_RAIN:            arrowRain(player, world );          break;
             case MLG_TELEPORT:          mlgTeleport(player, world);         break;
             case TIME_CHANGE:           timeChange(player, world);          break;
             case SNOW_PARTICLES:        snowParticles(player, world);       break;
@@ -98,10 +98,10 @@ public class RandomEvents {
             case PUMPKIN_HEAD:          pumpkinHead(player);                break;
             case RANDOM_TELEPORT:       randomTeleport(player);             break;
             case THUNDERSTRIKES:        thunderstrikes(player, world);      break;
-            case TNT_FEET:              tntFeet(player, world, manager);             break;
+            case TNT_FEET:              tntFeet(player, world, manager);    break;
             case ENDERMAN_SPAWN:        endermanSpawn(player, world);       break;
             case WATER_SURROUND:        waterSurround(player, world);       break;
-            case FIRE_UNDER_FEET:       fireUnderFeet(player, world, manager);       break;
+            case FIRE_UNDER_FEET:       fireUnderFeet(player, world, manager); break;
             case BLINDNESS_TELEPORT:    blindnessTeleport(player);          break;
             case LAVA_SURROUND:         lavaSurround(player, world);        break;
             case ANVIL_RAIN:            anvilRain(player, world);           break;
@@ -110,7 +110,7 @@ public class RandomEvents {
             case PHANTOM_SPAWN:         phantomSpawn(player, world);        break;
             case BABY_ZOMBIE_SPAWN:     babyZombieSpawn(player, world);     break;
             case BLINDNESS:             blindness(player);                  break;
-            case CHARGED_CREEPER_SPAWN: chargedcreeperSpawn(player, world);        break;
+            case CHARGED_CREEPER_SPAWN: chargedcreeperSpawn(player, world); break;
             case MINING_FATIGUE:        miningFatigue(player);              break;
             case LEVITATION_SLOWFALL:   levitationSlowfall(player);         break;
             case LONG_LEVITATION:       longLevitation(player);             break;
@@ -133,8 +133,7 @@ public class RandomEvents {
             double offsetX = (rand.nextDouble() - 0.5) * 10;
             double offsetZ = (rand.nextDouble() - 0.5) * 10;
 
-            ArrowEntity arrow = new ArrowEntity(world,
-                    player.getPosX() + offsetX, player.getPosY() + 20, player.getPosZ() + offsetZ);
+            ArrowEntity arrow = new ArrowEntity(world, player.getPosX() + offsetX, player.getPosY() + 20, player.getPosZ() + offsetZ);
             arrow.setDamage(2.0);
             world.addEntity(arrow);
         }
@@ -156,8 +155,7 @@ public class RandomEvents {
 
         ItemStack waterBucket = new ItemStack(Items.WATER_BUCKET);
         if (!player.inventory.addItemStackToInventory(waterBucket)) {
-            ItemEntity itemEntity = new ItemEntity(world,
-                    player.getPosX(), player.getPosY(), player.getPosZ(), waterBucket);
+            ItemEntity itemEntity = new ItemEntity(world, player.getPosX(), player.getPosY(), player.getPosZ(), waterBucket);
             world.addEntity(itemEntity);
         }
     }
@@ -172,7 +170,6 @@ public class RandomEvents {
             world.setDayTime((world.getDayTime() / 24000 + 1) * 24000);
             player.sendMessage(new StringTextComponent(TextFormatting.GOLD + "Dawn breaks..."), player.getUniqueID());
         }
-
         world.setWeather(0, 6000, true, true);
     }
 
@@ -261,8 +258,7 @@ public class RandomEvents {
             double offsetX = (rand.nextDouble() - 0.5) * 8;
             double offsetZ = (rand.nextDouble() - 0.5) * 8;
 
-            ItemEntity itemEntity = new ItemEntity(world,
-                    player.getPosX() + offsetX, player.getPosY() + 15, player.getPosZ() + offsetZ, food);
+            ItemEntity itemEntity = new ItemEntity(world, player.getPosX() + offsetX, player.getPosY() + 15, player.getPosZ() + offsetZ, food);
             world.addEntity(itemEntity);
         }
     }
@@ -271,11 +267,10 @@ public class RandomEvents {
         player.sendMessage(new StringTextComponent(TextFormatting.AQUA + "A legendary sword appears!"), player.getUniqueID());
 
         ItemStack sword = new ItemStack(Items.DIAMOND_SWORD);
-        sword.addEnchantment(Enchantments.SHARPNESS, 50);  // snapshot: addEnchantment not enchant
+        sword.addEnchantment(Enchantments.SHARPNESS, 50);
 
         if (!player.inventory.addItemStackToInventory(sword)) {
-            ItemEntity itemEntity = new ItemEntity(world,
-                    player.getPosX(), player.getPosY(), player.getPosZ(), sword);
+            ItemEntity itemEntity = new ItemEntity(world, player.getPosX(), player.getPosY(), player.getPosZ(), sword);
             world.addEntity(itemEntity);
         }
     }
@@ -314,19 +309,19 @@ public class RandomEvents {
 
         List<ItemStack> hotbarItems = new ArrayList<>();
         for (int i = 0; i < 9; i++) {
-            hotbarItems.add(player.inventory.getStackInSlot(i).copy());  // snapshot: getStackInSlot not getItem
+            hotbarItems.add(player.inventory.getStackInSlot(i).copy());
         }
 
         Collections.shuffle(hotbarItems);
 
         for (int i = 0; i < 9; i++) {
-            player.inventory.setInventorySlotContents(i, hotbarItems.get(i));  // snapshot: setInventorySlotContents not setItem
+            player.inventory.setInventorySlotContents(i, hotbarItems.get(i));
         }
     }
 
     private static void pumpkinHead(ServerPlayerEntity player) {
         player.sendMessage(new StringTextComponent(TextFormatting.GOLD + "You've been pumpkin'd!"), player.getUniqueID());
-        player.setItemStackToSlot(EquipmentSlotType.HEAD, new ItemStack(Items.CARVED_PUMPKIN));  // snapshot: setItemStackToSlot not setItemSlot
+        player.setItemStackToSlot(EquipmentSlotType.HEAD, new ItemStack(Items.CARVED_PUMPKIN));
     }
 
     private static void randomTeleport(ServerPlayerEntity player) {
@@ -369,8 +364,7 @@ public class RandomEvents {
 
                 BlockPos pos = new BlockPos(player.getPosX(), player.getPosY() - 1, player.getPosZ());
                 world.setBlockState(pos, Blocks.TNT.getDefaultState(), 3);
-                TNTEntity tnt = new TNTEntity(world,
-                        pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, player);
+                TNTEntity tnt = new TNTEntity(world, pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, player);
                 tnt.setFuse(40);
                 world.addEntity(tnt);
                 ticks++;
@@ -468,7 +462,7 @@ public class RandomEvents {
     private static void blindnessTeleport(ServerPlayerEntity player) {
         player.sendMessage(new StringTextComponent(TextFormatting.DARK_GRAY + "Where are you?"), player.getUniqueID());
 
-        player.addPotionEffect(new EffectInstance(Effects.BLINDNESS, 1200, 0));  // snapshot: addPotionEffect not addEffect
+        player.addPotionEffect(new EffectInstance(Effects.BLINDNESS, 1200, 0));
 
         double newX = player.getPosX() + (rand.nextDouble() - 0.5) * 100;
         double newZ = player.getPosZ() + (rand.nextDouble() - 0.5) * 100;
@@ -676,8 +670,7 @@ public class RandomEvents {
             double offsetX = (rand.nextDouble() - 0.5) * 10;
             double offsetZ = (rand.nextDouble() - 0.5) * 10;
 
-            TNTEntity tnt = new TNTEntity(world,
-                    player.getPosX() + offsetX, player.getPosY() + 20, player.getPosZ() + offsetZ, null);
+            TNTEntity tnt = new TNTEntity(world, player.getPosX() + offsetX, player.getPosY() + 20, player.getPosZ() + offsetZ, null);
             tnt.setFuse(60 + rand.nextInt(40));
             world.addEntity(tnt);
         }
@@ -768,8 +761,7 @@ public class RandomEvents {
             double offsetX = (rand.nextDouble() - 0.5) * 10;
             double offsetZ = (rand.nextDouble() - 0.5) * 10;
 
-            PotionEntity potion = new PotionEntity(world,
-                    player.getPosX() + offsetX, player.getPosY() + 15, player.getPosZ() + offsetZ);
+            PotionEntity potion = new PotionEntity(world, player.getPosX() + offsetX, player.getPosY() + 15, player.getPosZ() + offsetZ);
 
             ItemStack potionStack = new ItemStack(Items.SPLASH_POTION);
             potionStack = PotionUtils.addPotionToItemStack(potionStack, Potions.STRONG_HARMING);
@@ -878,7 +870,7 @@ public class RandomEvents {
                 }
             } else if (!(te instanceof BlastFurnaceTileEntity) && !(te instanceof SmokerTileEntity)
                     && recipe instanceof FurnaceRecipe) {
-                // Covers vanilla furnace AND any modded furnace TE that extends AbstractFurnaceTileEntity
+                // Covers vanilla furnace AND any modded furnace that extends AbstractFurnaceTileEntity
                 for (ItemStack match : recipe.getIngredients().get(0).getMatchingStacks()) {
                     if (!match.isEmpty() && !match.getItem().isFood()) {
                         ingredients.add(match.getItem());

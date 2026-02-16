@@ -3,8 +3,6 @@ package com.devmaster.random_events.misc;
 
 import com.devmaster.random_events.config.REConfig;
 
-import net.minecraft.entity.EntityType;
-
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -34,7 +32,6 @@ public class Random_Events {
     }
 
     private void setup(final FMLCommonSetupEvent event) {
-
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {

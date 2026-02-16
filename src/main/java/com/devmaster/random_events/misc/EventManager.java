@@ -1,6 +1,7 @@
 package com.devmaster.random_events.misc;
 
 import com.devmaster.random_events.config.REConfig;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
@@ -13,8 +14,8 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
-
 import net.minecraft.world.server.ServerWorld;
+
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
@@ -80,8 +81,6 @@ public class EventManager {
         ));
     }
 
-
-
 /*** Searches outward from the enderman's position to find the block they
  * just placed.  PlaceBlockGoal puts the block within ~2 blocks of the
  * enderman's feet*/
@@ -128,8 +127,7 @@ private static BlockPos findPlacedBlock(ServerWorld world, EndermanEntity enderm
         if (tickCounter >= warningTick && !warningGiven) {
             warningGiven = true;
             for (ServerPlayerEntity player : ServerLifecycleHooks.getCurrentServer().getPlayerList().getPlayers()) {
-                player.sendMessage(new StringTextComponent(TextFormatting.RED + "A random event will happen in " +
-                        REConfig.CONFIG.warningTimeSeconds.get() + " seconds!"), player.getUniqueID());
+                player.sendMessage(new StringTextComponent(TextFormatting.RED + "A random event will happen in " + REConfig.CONFIG.warningTimeSeconds.get() + " seconds!"), player.getUniqueID());
             }
         }
 
