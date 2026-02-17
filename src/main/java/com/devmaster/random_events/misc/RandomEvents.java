@@ -45,33 +45,33 @@ public class RandomEvents {
         ARROW_RAIN,
         MLG_TELEPORT,
         TIME_CHANGE,
-        SNOW_PARTICLES,
+        LET_IT_SNWOW,
         VALUABLE_LOOT_RAIN,
         FOOD_RAIN,
-        DIAMOND_SWORD,
+        SHARP_DIAMOND_SWORD,
         XP_RAIN,
         CHICKEN_RAIN,
         HOTBAR_SHUFFLE,
         PUMPKIN_HEAD,
         RANDOM_TELEPORT,
         THUNDERSTRIKES,
-        TNT_FEET,
-        ENDERMAN_SPAWN,
+        TNT_RUN,
+        ENDERMAN_WATCHERS,
         WATER_SURROUND,
         FIRE_UNDER_FEET,
         BLINDNESS_TELEPORT,
-        LAVA_SURROUND,
+        RING_OF_LAVA,
         ANVIL_RAIN,
-        SKELETON_SPAWN,
+        SKELETON_ARMY,
         LAVA_UNDER_FEET,
-        PHANTOM_SPAWN,
-        BABY_ZOMBIE_SPAWN,
-        BLINDNESS,
-        CHARGED_CREEPER_SPAWN,
-        MINING_FATIGUE,
-        LEVITATION_SLOWFALL,
-        LONG_LEVITATION,
-        ICE_UNDER_FEET,
+        PHANTOM_DESCENDS,
+        BABY_ZOMBIE_RUSH,
+        BLIND_BANDIT,
+        CREEPER_AWW_MAN,
+        HEAVY_ARMS,
+        UP_UP_AND_AWAY,
+        EXTENDED_FLIGHT,
+        ICE_SKATING,
         WITHER_SPAWN,
         GROUND_BREAK,
         TNT_RAIN,
@@ -88,33 +88,33 @@ public class RandomEvents {
             case ARROW_RAIN:            arrowRain(player, world );          break;
             case MLG_TELEPORT:          mlgTeleport(player, world);         break;
             case TIME_CHANGE:           timeChange(player, world);          break;
-            case SNOW_PARTICLES:        snowParticles(player, world);       break;
+            case LET_IT_SNWOW:          letItSnow(player, world);           break;
             case VALUABLE_LOOT_RAIN:    valuableLootRain(player, world);    break;
             case FOOD_RAIN:             foodRain(player, world);            break;
-            case DIAMOND_SWORD:         diamondSword(player, world);        break;
+            case SHARP_DIAMOND_SWORD:   sharpDiamondSword(player, world);   break;
             case XP_RAIN:               xpRain(player, world);              break;
             case CHICKEN_RAIN:          chickenRain(player, world);         break;
             case HOTBAR_SHUFFLE:        hotbarShuffle(player);              break;
             case PUMPKIN_HEAD:          pumpkinHead(player);                break;
             case RANDOM_TELEPORT:       randomTeleport(player);             break;
             case THUNDERSTRIKES:        thunderstrikes(player, world);      break;
-            case TNT_FEET:              tntFeet(player, world, manager);    break;
-            case ENDERMAN_SPAWN:        endermanSpawn(player, world);       break;
+            case TNT_RUN:               tntRun(player, world, manager);     break;
+            case ENDERMAN_WATCHERS:     endermanWatchers(player, world);    break;
             case WATER_SURROUND:        waterSurround(player, world);       break;
             case FIRE_UNDER_FEET:       fireUnderFeet(player, world, manager); break;
             case BLINDNESS_TELEPORT:    blindnessTeleport(player);          break;
-            case LAVA_SURROUND:         lavaSurround(player, world);        break;
+            case RING_OF_LAVA:          ringOfLava(player, world);          break;
             case ANVIL_RAIN:            anvilRain(player, world);           break;
-            case SKELETON_SPAWN:        skeletonSpawn(player, world);       break;
+            case SKELETON_ARMY:         skeletonArmy(player, world);        break;
             case LAVA_UNDER_FEET:       lavaUnderFeet(player, world);       break;
-            case PHANTOM_SPAWN:         phantomSpawn(player, world);        break;
-            case BABY_ZOMBIE_SPAWN:     babyZombieSpawn(player, world);     break;
-            case BLINDNESS:             blindness(player);                  break;
-            case CHARGED_CREEPER_SPAWN: chargedcreeperSpawn(player, world); break;
-            case MINING_FATIGUE:        miningFatigue(player);              break;
-            case LEVITATION_SLOWFALL:   levitationSlowfall(player);         break;
-            case LONG_LEVITATION:       longLevitation(player);             break;
-            case ICE_UNDER_FEET:        iceUnderFeet(player, world);        break;
+            case PHANTOM_DESCENDS:      phantomDescends(player, world);     break;
+            case BABY_ZOMBIE_RUSH:      babyZombieRush(player, world);      break;
+            case BLIND_BANDIT:          blindBandit(player);                break;
+            case CREEPER_AWW_MAN:       creeperAwwMan(player, world);       break;
+            case HEAVY_ARMS:            heavyArms(player);                  break;
+            case UP_UP_AND_AWAY:        upUpAndAway(player);                break;
+            case EXTENDED_FLIGHT:       extendedFlight(player);             break;
+            case ICE_SKATING:           iceSkating(player, world);          break;
             case WITHER_SPAWN:          witherSpawn(player, world);         break;
             case GROUND_BREAK:          groundBreak(player, world);         break;
             case TNT_RAIN:              tntRain(player, world);             break;
@@ -173,7 +173,7 @@ public class RandomEvents {
         world.setWeather(0, 6000, true, true);
     }
 
-    private static void snowParticles(ServerPlayerEntity player, ServerWorld world) {
+    private static void letItSnow(ServerPlayerEntity player, ServerWorld world) {
         player.sendMessage(new StringTextComponent(TextFormatting.WHITE + "Let it snow!"), player.getUniqueID());
 
         for (int x = -5; x <= 5; x++) {
@@ -263,8 +263,8 @@ public class RandomEvents {
         }
     }
 
-    private static void diamondSword(ServerPlayerEntity player, ServerWorld world) {
-        player.sendMessage(new StringTextComponent(TextFormatting.AQUA + "A legendary sword appears!"), player.getUniqueID());
+    private static void sharpDiamondSword(ServerPlayerEntity player, ServerWorld world) {
+        player.sendMessage(new StringTextComponent(TextFormatting.AQUA + "A sharp diamond sword has been gifted to you!"), player.getUniqueID());
 
         ItemStack sword = new ItemStack(Items.DIAMOND_SWORD);
         sword.addEnchantment(Enchantments.SHARPNESS, 50);
@@ -291,7 +291,7 @@ public class RandomEvents {
     }
 
     private static void chickenRain(ServerPlayerEntity player, ServerWorld world) {
-        player.sendMessage(new StringTextComponent(TextFormatting.YELLOW + "The chickens are falling!"), player.getUniqueID());
+        player.sendMessage(new StringTextComponent(TextFormatting.YELLOW + "It's Raining Chickens!"), player.getUniqueID());
 
         int chickenCount = 10 + rand.nextInt(20);
         for (int i = 0; i < chickenCount; i++) {
@@ -348,8 +348,8 @@ public class RandomEvents {
         }
     }
 
-    private static void tntFeet(ServerPlayerEntity player, ServerWorld world, EventManager manager) {
-        player.sendMessage(new StringTextComponent(TextFormatting.RED + "TNT beneath your feet!"), player.getUniqueID());
+    private static void tntRun(ServerPlayerEntity player, ServerWorld world, EventManager manager) {
+        player.sendMessage(new StringTextComponent(TextFormatting.RED + "TNT beneath your feet... run!"), player.getUniqueID());
 
         Timer timer = new Timer();
         manager.trackTimer(player, timer);  // register it before scheduling
@@ -372,7 +372,7 @@ public class RandomEvents {
         }, 0, 50);
     }
 
-    private static void endermanSpawn(ServerPlayerEntity player, ServerWorld world) {
+    private static void endermanWatchers(ServerPlayerEntity player, ServerWorld world) {
         player.sendMessage(new StringTextComponent(TextFormatting.DARK_PURPLE + "Endermen are watching..."), player.getUniqueID());
 
         int endermanCount = 3 + rand.nextInt(7);
@@ -471,7 +471,7 @@ public class RandomEvents {
         player.setPositionAndUpdate(newX, newY, newZ);
     }
 
-    private static void lavaSurround(ServerPlayerEntity player, ServerWorld world) {
+    private static void ringOfLava(ServerPlayerEntity player, ServerWorld world) {
         player.sendMessage(new StringTextComponent(TextFormatting.RED + "A ring of lava!"), player.getUniqueID());
 
         for (int x = -4; x <= 4; x++) {
@@ -486,7 +486,7 @@ public class RandomEvents {
     }
 
     private static void anvilRain(ServerPlayerEntity player, ServerWorld world) {
-        player.sendMessage(new StringTextComponent(TextFormatting.GRAY + "Anvils are falling!"), player.getUniqueID());
+        player.sendMessage(new StringTextComponent(TextFormatting.GRAY + "It's raining Anvils!"), player.getUniqueID());
 
         int anvilCount = 5 + rand.nextInt(10);
         for (int i = 0; i < anvilCount; i++) {
@@ -501,10 +501,10 @@ public class RandomEvents {
         }
     }
 
-    private static void skeletonSpawn(ServerPlayerEntity player, ServerWorld world) {
-        player.sendMessage(new StringTextComponent(TextFormatting.WHITE + "Skeleton army!"), player.getUniqueID());
+    private static void skeletonArmy(ServerPlayerEntity player, ServerWorld world) {
+        player.sendMessage(new StringTextComponent(TextFormatting.WHITE + "Skeleton Army Attacks!"), player.getUniqueID());
 
-        String[] names = {"Bonehead", "Rattles", "Clicky", "Spooky", "Scary", "Mr. Bones", "Pit", "Pat", "Jen", "Dev", "Jelly Bean", "Dog Treat", "Horseman", "Skele-Ton", "Bonnie", "Elena", "Caroline"};
+        String[] names = {"Bonehead", "Rattles", "Clicky", "Spooky", "Scary", "Mr. Bones", "Pit", "Pat", "Jen", "Dev", "Jelly Bean", "Dog Treat", "Horseman", "Skele-Ton", "Bonnie", "Elena", "Caroline", "Mr. Skeleton"};
 
         int skeletonCount = 3 + rand.nextInt(5);
         for (int i = 0; i < skeletonCount; i++) {
@@ -542,7 +542,7 @@ public class RandomEvents {
         }
     }
 
-    private static void phantomSpawn(ServerPlayerEntity player, ServerWorld world) {
+    private static void phantomDescends(ServerPlayerEntity player, ServerWorld world) {
         player.sendMessage(new StringTextComponent(TextFormatting.DARK_PURPLE + "Phantoms descend!"), player.getUniqueID());
 
         int phantomCount = 3 + rand.nextInt(6);
@@ -558,8 +558,8 @@ public class RandomEvents {
         }
     }
 
-    private static void babyZombieSpawn(ServerPlayerEntity player, ServerWorld world) {
-        player.sendMessage(new StringTextComponent(TextFormatting.GREEN + "Baby zombie rush!"), player.getUniqueID());
+    private static void babyZombieRush(ServerPlayerEntity player, ServerWorld world) {
+        player.sendMessage(new StringTextComponent(TextFormatting.GREEN + "Baby Zombie rush!"), player.getUniqueID());
 
         int zombieCount = 5 + rand.nextInt(10);
         for (int i = 0; i < zombieCount; i++) {
@@ -575,12 +575,12 @@ public class RandomEvents {
         }
     }
 
-    private static void blindness(ServerPlayerEntity player) {
+    private static void blindBandit(ServerPlayerEntity player) {
         player.sendMessage(new StringTextComponent(TextFormatting.DARK_GRAY + "Darkness falls!"), player.getUniqueID());
         player.addPotionEffect(new EffectInstance(Effects.BLINDNESS, 2400, 0));
     }
 
-    private static void chargedcreeperSpawn(ServerPlayerEntity player, ServerWorld world) {
+    private static void creeperAwwMan(ServerPlayerEntity player, ServerWorld world) {
         player.sendMessage(new StringTextComponent(TextFormatting.GREEN + "Creeper.... Aww Man."), player.getUniqueID());
 
         int creeperCount = 3 + rand.nextInt(7);
@@ -599,12 +599,12 @@ public class RandomEvents {
         }
     }
 
-    private static void miningFatigue(ServerPlayerEntity player) {
+    private static void heavyArms(ServerPlayerEntity player) {
         player.sendMessage(new StringTextComponent(TextFormatting.GRAY + "Your arms feel heavy..."), player.getUniqueID());
         player.addPotionEffect(new EffectInstance(Effects.MINING_FATIGUE, 1200, 2));
     }
 
-    private static void levitationSlowfall(ServerPlayerEntity player) {
+    private static void upUpAndAway(ServerPlayerEntity player) {
         player.sendMessage(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Up, up, and away!"), player.getUniqueID());
 
         player.addPotionEffect(new EffectInstance(Effects.LEVITATION, 400, 1));
@@ -617,12 +617,12 @@ public class RandomEvents {
         }, 400);
     }
 
-    private static void longLevitation(ServerPlayerEntity player) {
+    private static void extendedFlight(ServerPlayerEntity player) {
         player.sendMessage(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Extended flight!"), player.getUniqueID());
         player.addPotionEffect(new EffectInstance(Effects.LEVITATION, 3600, 0));
     }
 
-    private static void iceUnderFeet(ServerPlayerEntity player, ServerWorld world) {
+    private static void iceSkating(ServerPlayerEntity player, ServerWorld world) {
         player.sendMessage(new StringTextComponent(TextFormatting.AQUA + "Ice skating time!"), player.getUniqueID());
 
         for (int x = -3; x <= 3; x++) {
@@ -754,7 +754,7 @@ public class RandomEvents {
     }
 
     private static void harmPotionRain(ServerPlayerEntity player, ServerWorld world) {
-        player.sendMessage(new StringTextComponent(TextFormatting.DARK_RED + "Deadly potions falling!"), player.getUniqueID());
+        player.sendMessage(new StringTextComponent(TextFormatting.DARK_RED + "Harming potions falling from the sky!"), player.getUniqueID());
 
         int potionCount = 5 + rand.nextInt(10);
         for (int i = 0; i < potionCount; i++) {

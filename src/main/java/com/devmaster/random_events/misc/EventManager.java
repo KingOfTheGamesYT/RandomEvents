@@ -243,14 +243,14 @@ private static BlockPos findPlacedBlock(ServerWorld world, EndermanEntity enderm
             events.add(RandomEvents.EventType.MLG_TELEPORT);
         if (REConfig.CONFIG.timeChangeEnabled.get())
             events.add(RandomEvents.EventType.TIME_CHANGE);
-        if (REConfig.CONFIG.snowParticlesEnabled.get())
-            events.add(RandomEvents.EventType.SNOW_PARTICLES);
+        if (REConfig.CONFIG.letItSnowEnabled.get())
+            events.add(RandomEvents.EventType.LET_IT_SNWOW);
         if (REConfig.CONFIG.valuableLootRainEnabled.get())
             events.add(RandomEvents.EventType.VALUABLE_LOOT_RAIN);
         if (REConfig.CONFIG.foodRainEnabled.get())
             events.add(RandomEvents.EventType.FOOD_RAIN);
-        if (REConfig.CONFIG.diamondSwordEnabled.get())
-            events.add(RandomEvents.EventType.DIAMOND_SWORD);
+        if (REConfig.CONFIG.sharpDiamondSwordEnabled.get())
+            events.add(RandomEvents.EventType.SHARP_DIAMOND_SWORD);
         if (REConfig.CONFIG.xpRainEnabled.get())
             events.add(RandomEvents.EventType.XP_RAIN);
         if (REConfig.CONFIG.chickenRainEnabled.get())
@@ -263,40 +263,40 @@ private static BlockPos findPlacedBlock(ServerWorld world, EndermanEntity enderm
             events.add(RandomEvents.EventType.RANDOM_TELEPORT);
         if (REConfig.CONFIG.thunderstrikesEnabled.get())
             events.add(RandomEvents.EventType.THUNDERSTRIKES);
-        if (REConfig.CONFIG.tntFeetEnabled.get())
-            events.add(RandomEvents.EventType.TNT_FEET);
-        if (REConfig.CONFIG.endermanSpawnEnabled.get())
-            events.add(RandomEvents.EventType.ENDERMAN_SPAWN);
+        if (REConfig.CONFIG.tntRunEnabled.get())
+            events.add(RandomEvents.EventType.TNT_RUN);
+        if (REConfig.CONFIG.endermanWatchersEnabled.get())
+            events.add(RandomEvents.EventType.ENDERMAN_WATCHERS);
         if (REConfig.CONFIG.waterSurroundEnabled.get())
             events.add(RandomEvents.EventType.WATER_SURROUND);
         if (REConfig.CONFIG.fireUnderFeetEnabled.get())
             events.add(RandomEvents.EventType.FIRE_UNDER_FEET);
-        if (REConfig.CONFIG.blindnessTeleportEnabled.get())
+        if (REConfig.CONFIG.blindTeleportEnabled.get())
             events.add(RandomEvents.EventType.BLINDNESS_TELEPORT);
-        if (REConfig.CONFIG.lavaSurroundEnabled.get())
-            events.add(RandomEvents.EventType.LAVA_SURROUND);
+        if (REConfig.CONFIG.ringOfLavaEnabled.get())
+            events.add(RandomEvents.EventType.RING_OF_LAVA);
         if (REConfig.CONFIG.anvilRainEnabled.get())
             events.add(RandomEvents.EventType.ANVIL_RAIN);
-        if (REConfig.CONFIG.skeletonSpawnEnabled.get())
-            events.add(RandomEvents.EventType.SKELETON_SPAWN);
+        if (REConfig.CONFIG.skeletonArmyEnabled.get())
+            events.add(RandomEvents.EventType.SKELETON_ARMY);
         if (REConfig.CONFIG.lavaUnderFeetEnabled.get())
             events.add(RandomEvents.EventType.LAVA_UNDER_FEET);
-        if (REConfig.CONFIG.phantomSpawnEnabled.get())
-            events.add(RandomEvents.EventType.PHANTOM_SPAWN);
-        if (REConfig.CONFIG.babyZombieSpawnEnabled.get())
-            events.add(RandomEvents.EventType.BABY_ZOMBIE_SPAWN);
-        if (REConfig.CONFIG.blindnessEnabled.get())
-            events.add(RandomEvents.EventType.BLINDNESS);
-        if (REConfig.CONFIG.chargedCreeperSpawnEnabled.get())
-            events.add(RandomEvents.EventType.CHARGED_CREEPER_SPAWN);
-        if (REConfig.CONFIG.miningFatigueEnabled.get())
-            events.add(RandomEvents.EventType.MINING_FATIGUE);
-        if (REConfig.CONFIG.levitationSlowfallEnabled.get())
-            events.add(RandomEvents.EventType.LEVITATION_SLOWFALL);
-        if (REConfig.CONFIG.longLevitationEnabled.get())
-            events.add(RandomEvents.EventType.LONG_LEVITATION);
-        if (REConfig.CONFIG.iceUnderFeetEnabled.get())
-            events.add(RandomEvents.EventType.ICE_UNDER_FEET);
+        if (REConfig.CONFIG.phantomDescendsEnabled.get())
+            events.add(RandomEvents.EventType.PHANTOM_DESCENDS);
+        if (REConfig.CONFIG.babyZombieRushEnabled.get())
+            events.add(RandomEvents.EventType.BABY_ZOMBIE_RUSH);
+        if (REConfig.CONFIG.blindBanditEnabled.get())
+            events.add(RandomEvents.EventType.BLIND_BANDIT);
+        if (REConfig.CONFIG.creeperAwwManEnabled.get())
+            events.add(RandomEvents.EventType.CREEPER_AWW_MAN);
+        if (REConfig.CONFIG.heavyArmsEnabled.get())
+            events.add(RandomEvents.EventType.HEAVY_ARMS);
+        if (REConfig.CONFIG.upUpAndAwayEnabled.get())
+            events.add(RandomEvents.EventType.UP_UP_AND_AWAY);
+        if (REConfig.CONFIG.extendedFlightEnabled.get())
+            events.add(RandomEvents.EventType.EXTENDED_FLIGHT);
+        if (REConfig.CONFIG.iceSkatingEnabled.get())
+            events.add(RandomEvents.EventType.ICE_SKATING);
         if (REConfig.CONFIG.witherSpawnEnabled.get())
             events.add(RandomEvents.EventType.WITHER_SPAWN);
         if (REConfig.CONFIG.groundBreakEnabled.get())
